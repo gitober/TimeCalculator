@@ -11,15 +11,15 @@ pipeline {
 
         stage('Build') {
             steps {
-                // Run Maven build
-                sh 'mvn clean package'
+                // Run Maven build (use bat for Windows)
+                bat 'mvn clean package'
             }
         }
 
         stage('Test') {
             steps {
-                // Run unit tests
-                sh 'mvn test'
+                // Run unit tests (use bat for Windows)
+                bat 'mvn test'
             }
             post {
                 always {
@@ -31,8 +31,8 @@ pipeline {
 
         stage('Code Coverage') {
             steps {
-                // Generate JaCoCo coverage report
-                sh 'mvn jacoco:report'
+                // Generate JaCoCo coverage report (use bat for Windows)
+                bat 'mvn jacoco:report'
             }
             post {
                 always {
